@@ -1,0 +1,9 @@
+pt-br:
+  front:
+    title: "Titulo"
+    description: "Descrição"
+    value: "Valor"
+    value_promotion: "Valor Promocional"
+    status: "Status"
+    category: "Categoria"
+    tag: "Tag"

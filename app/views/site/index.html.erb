@@ -1,0 +1,65 @@
+
+
+
+<p id="notice"><%= notice %></p>
+<div class="row">
+    <div class="col-8"><h1> Listagem de produtos</h1></div>
+    <div class="col-4 table-responsive"><div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        
+    </div>
+    </div>
+  </div>
+
+<div class="container mt-5">
+      <div class="row tm-content-row">
+        <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 tm-block-col">
+          <div class="tm-bg-primary-dark tm-block tm-block-products">
+            <div class="tm-product-table-container">
+              <table class="table table-hover tm-table-small tm-product-table">
+                <thead>
+                  <tr>
+                    <th scope="col">&nbsp;</th>
+                    <th scope="col">Título</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <% @products.each do |product| %>
+                  <tr>
+                    <th scope="row"><input type="checkbox" /></th>
+                    <td class="tm-product-name"><%= product.title %></td>
+                    <td><%= product.category.name %></td>
+                    <td><%= product.tag.name %></td>
+                    <td><%= link_to 'Editar', edit_product_path(product) %></td>
+                    <td><%= link_to 'Excluir', product, method: :delete, data: { confirm: 'Deseja deletar o produto?' } %></td>
+                    <td>
+                      <a href="#" class="tm-product-delete-link">
+                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+            <!-- table container -->
+              <%= link_to 'Novo Produto', new_product_path, class: "btn btn-primary btn-block text-uppercase mb-3" %>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 tm-block-col">
+          <div class="tm-bg-primary-dark tm-block tm-block-product-categories">
+            <h2 class="tm-block-title">Categorias Cadastradas</h2>
+            <div class="tm-product-table-container">
+              <table class="table tm-table-small tm-product-table">
+                <tbody>
+                  <% @categories.each do |category| %>
+                    <tr>
+                      <td><%= category.name %></td>
+                    </tr>
+                <% end %>
+               </tbody>
+              </table>
+            </div>
+            <!-- table container -->
