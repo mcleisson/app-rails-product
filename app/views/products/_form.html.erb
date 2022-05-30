@@ -44,20 +44,20 @@
               <div class="col-xl-6 col-lg-6 col-md-12">
                 <form action="" class="tm-edit-product-form">
                   <div class="form-group mb-3">
-                    <%= form.label :title %>
+                    <%= form.label I18n.t('products.title') %>
                     <%= form.text_field :title, class: "form-control" %>
                   </div>
                   <div class="form-group mb-3">
-                    <%= form.label :description %>
+                    <%= form.label I18n.t('products.description') %>
                     <%= form.text_area :description, class: "form-control", rows: "5", id: "area1" %>
                   </div>
                   <div class="form-group mb-3">
-                    <%= form.label :category_id %>
+                    <%= form.label I18n.t('products.category_id') %>
                     <%= form.select :category_id, options_from_collection_for_select(Category.all, "id", "name", form.object.category_id), 
                     {:prompt=>"Selecione uma categoria"}, class:"custom-select tm-select-accounts" %>
                   </div>
                   <div class="form-group mb-3">
-                    <%= form.label :tag_id %>
+                    <%= form.label I18n.t('products.tag_id') %>
                     <%= form.select :tag_id, options_from_collection_for_select(Tag.all, "id", "name", form.object.tag_id), 
                     {:prompt=>"Selecione uma Tag"}, class:"custom-select tm-select-accounts" %>
                   </div>
@@ -67,11 +67,11 @@
                   </div>
                   <div class=form-group mb-3">
                       <div class="form-group mb-3 col-xs-12 col-sm-6">
-                          <%= form.label :value %>
+                          <%= form.label I18n.t('products.value') %>
                           <%= form.text_field :value, class: "form-control" %>
                         </div>
                         <div class="form-group mb-3 col-xs-12 col-sm-6">
-                          <%= form.label :value_promotion %>
+                          <%= form.label I18n.t('products.value_promotion') %>
                           <%= form.text_field :value_promotion, class: "form-control" %>
                         </div>
                     </div>

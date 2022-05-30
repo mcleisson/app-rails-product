@@ -1,25 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Versões do projeto
+ Ruby: 2.4.5
+ Rails: ~> 5.2.8
+ PostgreSQL: 14
 
-Things you may want to cover:
+ # Acessando o Projeto
+ Para facilitar o acesso ao projeto, foi criada uma instâcia no HEROKU.
+ A URL de acesso é:
+ https://young-ocean-51249.herokuapp.com/
 
-* Ruby version
+ # Endpoints para acesso API
+ 
+Tags
+ Acesse pelo seu client de consulta de API:
+ Método:GET
+ URL:http://localhost:3000/tags.json
 
-* System dependencies
+Categorias
+ Método: GET
+ URL: https://young-ocean-51249.herokuapp.com/categories.json
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# app-rails-product
+Produtos
+ Método: GET
+ URL: https://young-ocean-51249.herokuapp.com/products.json
