@@ -17,7 +17,7 @@ pt-BR:
     name: 'Nome'
     description: 'Descrição'
   tag:
-    name: 'name'
+    name: 'Nome'
   date:
     abbr_day_names:
     - dom
