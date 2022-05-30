@@ -13,6 +13,11 @@ pt-BR:
     tag_id: 'Tag'
     value: 'Valor'
     value_promotion: 'Comparação de Preços'
+  category:
+    name: 'Nome'
+    description: 'Descrição'
+  tag:
+    name: 'name'
   date:
     abbr_day_names:
     - dom

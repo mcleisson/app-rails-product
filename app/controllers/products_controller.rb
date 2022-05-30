@@ -39,7 +39,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /products/1 or /products/1.json
   def update
     respond_to do |format|
       if @product.update(product_params)
@@ -52,7 +51,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  # DELETE /products/1 or /products/1.json
   def destroy
     @product.destroy
 
@@ -63,12 +61,11 @@ class ProductsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_product
       @product = Product.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def product_params
       params.require(:product).permit(:title, :description, :value, :value_promotion, :status, :category_id, :tag_id)
     end

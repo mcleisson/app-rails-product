@@ -1,104 +1,74 @@
-<div class="card d-flex p-2" style="width: 130rem;">
-  <div class="card-body">
-    <div class="form-group">
-      <div class="container">
-        <div class="row no-gutters">
-          <div class="col-sm-6 col-md-8">
-            <%= form_with(model: product, local: true) do |form| %>
-              <% if product.errors.any? %>
-                <div id="error_explanation">
-                  <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
 
-                  <ul>
-                  <% product.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                  <% end %>
-                  </ul>
-                </div>
-              <% end %>
-
-              
-              <div class="actions">
-                
-            </div>
-           
+<%= form_with(model: product, local: true) do |form| %>
+<% if product.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+    <ul>
+    <% product.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<div class="container tm-mt-big tm-mb-big">
+  <div class="row">
+    <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+      <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="tm-block-title d-inline-block">Novo Produto</h2>
           </div>
-          
         </div>
-        
+        <div class="row tm-edit-product-row">
+          <div class="col-xl-6 col-lg-6 col-md-12">
+            <form action="" class="tm-edit-product-form">
+              <div class="form-group mb-3">
+                <%= form.label I18n.t('products.title') %>
+                <%= form.text_field :title, class: "form-control" %>
+              </div>
+              <div class="form-group mb-3">
+                <%= form.label I18n.t('products.description') %>
+                <%= form.text_area :description, class: "form-control", rows: "5", id: "area1" %>
+              </div>
+              <div class="form-group mb-3">
+                <%= form.label I18n.t('products.category_id') %>
+                <%= form.select :category_id, options_from_collection_for_select(Category.all, "id", "name", form.object.category_id), 
+                {:prompt=>"Selecione uma categoria"}, class:"custom-select tm-select-accounts" %>
+              </div>
+              <div class="form-group mb-3">
+                <%= form.label I18n.t('products.tag_id') %>
+                <%= form.select :tag_id, options_from_collection_for_select(Tag.all, "id", "name", form.object.tag_id), 
+                {:prompt=>"Selecione uma Tag"}, class:"custom-select tm-select-accounts" %>
+              </div>
+              <div class="form-group mb-3">
+                <%= form.label :status %>
+                <%= form.select :status, [['Ativo', true], ['Inativo', false]], class:"custom-select tm-select-accounts" %>
+              </div>
+              <div class=form-group mb-3">
+                  <div class="form-group mb-3 col-xs-12 col-sm-6">
+                      <%= form.label I18n.t('products.value') %>
+                      <%= form.text_field :value, class: "form-control" %>
+                    </div>
+                    <div class="form-group mb-3 col-xs-12 col-sm-6">
+                      <%= form.label I18n.t('products.value_promotion') %>
+                      <%= form.text_field :value_promotion, class: "form-control" %>
+                    </div>
+                </div>
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
+            <div class="tm-product-img-dummy mx-auto">
+             
+            </div>
+            <div class="custom-file mt-3 mb-3">
+             
+            </div>
+          </div>
+          <div class="col-12">
+          <%= form.submit 'Adicionar Produto', :class => 'btn btn-primary btn-block text-uppercase' %>
+          </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-<div class="container tm-mt-big tm-mb-big">
-      <div class="row">
-        <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
-          <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
-            <div class="row">
-              <div class="col-12">
-                <h2 class="tm-block-title d-inline-block">Novo Produto</h2>
-              </div>
-            </div>
-            <div class="row tm-edit-product-row">
-              <div class="col-xl-6 col-lg-6 col-md-12">
-                <form action="" class="tm-edit-product-form">
-                  <div class="form-group mb-3">
-                    <%= form.label I18n.t('products.title') %>
-                    <%= form.text_field :title, class: "form-control" %>
-                  </div>
-                  <div class="form-group mb-3">
-                    <%= form.label I18n.t('products.description') %>
-                    <%= form.text_area :description, class: "form-control", rows: "5", id: "area1" %>
-                  </div>
-                  <div class="form-group mb-3">
-                    <%= form.label I18n.t('products.category_id') %>
-                    <%= form.select :category_id, options_from_collection_for_select(Category.all, "id", "name", form.object.category_id), 
-                    {:prompt=>"Selecione uma categoria"}, class:"custom-select tm-select-accounts" %>
-                  </div>
-                  <div class="form-group mb-3">
-                    <%= form.label I18n.t('products.tag_id') %>
-                    <%= form.select :tag_id, options_from_collection_for_select(Tag.all, "id", "name", form.object.tag_id), 
-                    {:prompt=>"Selecione uma Tag"}, class:"custom-select tm-select-accounts" %>
-                  </div>
-                  <div class="form-group mb-3">
-                    <%= form.label :status %>
-                    <%= form.select :status, [['Ativo', true], ['Inativo', false]], class:"custom-select tm-select-accounts" %>
-                  </div>
-                  <div class=form-group mb-3">
-                      <div class="form-group mb-3 col-xs-12 col-sm-6">
-                          <%= form.label I18n.t('products.value') %>
-                          <%= form.text_field :value, class: "form-control" %>
-                        </div>
-                        <div class="form-group mb-3 col-xs-12 col-sm-6">
-                          <%= form.label I18n.t('products.value_promotion') %>
-                          <%= form.text_field :value_promotion, class: "form-control" %>
-                        </div>
-                    </div>
-              </div>
-              <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
-                <div class="tm-product-img-dummy mx-auto">
-                  <i
-                    class="fas fa-cloud-upload-alt tm-upload-icon"
-                    onclick="document.getElementById('fileInput').click();"
-                  ></i>
-                </div>
-                <div class="custom-file mt-3 mb-3">
-                  <input id="fileInput" type="file" style="display:none;" />
-                  <input
-                    type="button"
-                    class="btn btn-primary btn-block mx-auto"
-                    value="UPLOAD PRODUCT IMAGE"
-                    onclick="document.getElementById('fileInput').click();"
-                  />
-                </div>
-              </div>
-              <div class="col-12">
-              <%= form.submit 'Adicionar Produto', :class => 'btn btn-primary btn-block text-uppercase' %>
-              </div>
-             <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>

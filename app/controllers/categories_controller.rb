@@ -20,7 +20,7 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to root_url(@category), notice: "Categoria criada com sucessp." }
+        format.html { redirect_to root_url(@category), notice: "Categoria criada com sucesso." }
         format.json { render :show, status: :created, location: @category }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -29,7 +29,7 @@ class CategoriesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /categories/1 or /categories/1.json
+  
   def update
     respond_to do |format|
       if @category.update(category_params)
@@ -42,23 +42,23 @@ class CategoriesController < ApplicationController
     end
   end
 
-  # DELETE /categories/1 or /categories/1.json
+  
   def destroy
     @category.destroy
 
     respond_to do |format|
-      format.html { redirect_to root_url, notice: "Category was successfully destroyed." }
+      format.html { redirect_to root_url, notice: "Categoria exclida com sucesso." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    
     def set_category
       @category = Category.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+    
     def category_params
       params.require(:category).permit(:name, :description)
     end
